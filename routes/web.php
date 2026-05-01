@@ -4,14 +4,23 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ChirpController;
 use Illuminate\Support\Facades\Route;
 
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+*/
+
+// 🌟 Halaman utama (sudah tidak default Laravel lagi)
 Route::get('/', function () {
     return view('welcome');
 });
 
+// Dashboard
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Auth protected routes
 Route::middleware('auth')->group(function () {
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
