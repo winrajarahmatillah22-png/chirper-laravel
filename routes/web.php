@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ChirpController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LikeController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 
 // 🌟 Halaman utama (sudah tidak default Laravel lagi)
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('chirps.index');
 });
 
 // Dashboard
@@ -27,8 +29,22 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::get('/chirps', [ChirpController::class, 'index'])->name('chirps.index');
-    Route::post('/chirps', [ChirpController::class, 'store'])->name('chirps.store');
+    Route::resource('chirps', ChirpController::class)
+    ->only(['index', 'store', 'edit', 'update', 'destroy'])
+    ->middleware(['auth']);
+    Route::post(
+    '/chirps/{chirp}/like',
+    [LikeController::class, 'toggle']
+)->name('chirps.like');
+    Route::post(
+    '/chirps/{chirp}/comments',
+    [CommentController::class, 'store']
+)->name('comments.store');
+
+Route::delete(
+    '/comments/{comment}',
+    [CommentController::class, 'destroy']
+)->name('comments.destroy');
 
 });
 
