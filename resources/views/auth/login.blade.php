@@ -22,7 +22,7 @@
                 #090011
             );
 
-            overflow:hidden;
+            overflow-y:auto;
             font-family:sans-serif;
         }
 
@@ -160,19 +160,22 @@
         </div>
 
         <!-- GOOGLE -->
-        <button
-            class="w-full mt-6 bg-white text-black py-4 rounded-2xl font-bold text-lg hover:bg-gray-200 transition"
-        >
-            🔵 Login dengan Google
-        </button>
+        <a
+    href="/auth/google"
+    class="w-full mt-6 bg-white text-black py-4 rounded-2xl font-bold text-lg hover:bg-gray-200 transition flex justify-center"
+>
+    🔵 Login dengan Google
+</a>
 
         <!-- DEMO -->
-        <button
-            class="w-full mt-4 bg-black/40 border border-fuchsia-500 py-4 rounded-2xl font-bold text-lg hover:bg-fuchsia-600 transition"
-        >
-            ⚡ Login Cepat
-        </button>
-
+    
+        <a
+    href="/quick-login"
+    class="w-full mt-4 bg-black/40 border border-fuchsia-500 py-4 rounded-2xl font-bold text-lg hover:bg-fuchsia-600 transition flex justify-center"
+>
+    ⚡ Login Cepat
+</a>
+    
         <!-- REGISTER -->
         <p class="text-center text-gray-400 mt-8">
 
