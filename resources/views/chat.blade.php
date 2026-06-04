@@ -1,246 +1,246 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WRR Chat</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+<title>WRR Chat</title>
 
-    <style>
+@vite(['resources/css/app.css','resources/js/app.js'])
 
-        body{
-            margin:0;
-            padding:0;
-            background:#090011;
-            color:white;
-            font-family:sans-serif;
-        }
+<style>
 
-        .bg{
-            position:fixed;
-            inset:0;
+body{
+    margin:0;
+    padding:0;
+    background:#090011;
+    color:white;
+    font-family:sans-serif;
+}
 
-            background:
-            linear-gradient(
-                rgba(0,0,0,0.7),
-                rgba(0,0,0,0.85)
-            ),
-            url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1400&auto=format&fit=crop');
+.bg{
+    position:fixed;
+    inset:0;
 
-            background-size:cover;
-            background-position:center;
+    background:
+    linear-gradient(
+        rgba(0,0,0,.75),
+        rgba(0,0,0,.9)
+    ),
+    url('https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1400&auto=format&fit=crop');
 
-            z-index:-1;
-        }
+    background-size:cover;
+    background-position:center;
 
-        .glass{
-            background:rgba(255,255,255,0.05);
-            backdrop-filter:blur(15px);
-            border:1px solid rgba(255,255,255,0.08);
-        }
+    z-index:-1;
+}
 
-        .bottom-nav{
-            position:fixed;
-            bottom:0;
-            left:0;
-            width:100%;
-            height:75px;
-            background:rgba(10,0,20,0.95);
-            border-top:1px solid rgba(255,255,255,0.1);
+.header{
+    padding:25px;
+}
 
-            display:flex;
-            justify-content:space-around;
-            align-items:center;
+.logo{
+    font-size:38px;
+    font-weight:bold;
+    color:#ff4dff;
+}
 
-            z-index:999;
-        }
+.sub{
+    color:#bbb;
+}
 
-        .nav-item{
-            display:flex;
-            flex-direction:column;
-            align-items:center;
-            color:#aaa;
-            text-decoration:none;
-            font-size:13px;
-        }
+.chat-list{
+    padding:20px;
+    padding-bottom:120px;
+}
 
-        .nav-item.active{
-            color:#ff4dff;
-        }
+.chat-card{
+    display:flex;
+    align-items:center;
+    gap:15px;
 
-        .plus-btn{
-            width:60px;
-            height:60px;
-            border-radius:20px;
+    background:rgba(255,255,255,.05);
 
-            background:
-            linear-gradient(
-                to right,
-                #ff00ff,
-                #6a00ff
-            );
+    border:1px solid rgba(255,255,255,.08);
 
-            display:flex;
-            align-items:center;
-            justify-content:center;
+    backdrop-filter:blur(15px);
 
-            color:white;
-            font-size:35px;
+    border-radius:25px;
 
-            margin-top:-35px;
+    padding:18px;
 
-            box-shadow:0 0 20px #ff00ff;
-        }
+    margin-bottom:15px;
 
-    </style>
+    text-decoration:none;
 
+    color:white;
+}
+
+.avatar{
+    width:70px;
+    height:70px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:32px;
+}
+
+.ai{
+    background:
+    linear-gradient(
+        to bottom,
+        #ff00ff,
+        #7b00ff
+    );
+}
+
+.user{
+    background:
+    linear-gradient(
+        to bottom,
+        #00cfff,
+        #004dff
+    );
+}
+
+.name{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.status{
+    color:#ccc;
+    margin-top:5px;
+}
+
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+
+    width:100%;
+    height:75px;
+
+    background:#12001f;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+
+.nav-item{
+    color:white;
+    text-decoration:none;
+    font-size:24px;
+}
+
+.active{
+    color:#ff4dff;
+}
+
+</style>
 </head>
+
 <body>
 
 <div class="bg"></div>
 
-<!-- TOP -->
-<div class="p-5">
+<div class="header">
 
-    <h1 class="text-4xl font-bold text-fuchsia-300">
-        💬 WRR Chat
-    </h1>
+<div class="logo">
+💬 WRR Chat
+</div>
 
-    <p class="text-gray-300 mt-2">
-        Girls AI & pesan teman 😆✨
-    </p>
+<p class="sub">
+Hanabiku AI & Teman WRR
+</p>
 
 </div>
 
-<!-- STORIES -->
-<div class="flex gap-4 overflow-x-auto px-5 pb-5">
+<div class="chat-list">
 
-    <!-- GIRLS AI -->
-    <div class="flex flex-col items-center min-w-[80px]">
+<a href="/chat-ai" class="chat-card">
 
-        <div
-            class="w-20 h-20 rounded-full bg-gradient-to-b from-pink-500 to-purple-700 flex items-center justify-center text-3xl border-4 border-fuchsia-400"
-        >
-            🤖
-        </div>
 
-        <p class="mt-2 text-sm text-center">
-            Girls AI
-        </p>
+<img
+src="/images/hanabi.jpeg"
+class="avatar"
+style="
+width:65px;
+height:65px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid #ff00ff;
+">
 
-    </div>
 
-    <!-- USER -->
-    <div class="flex flex-col items-center min-w-[80px]">
+<div>
 
-        <div
-            class="w-20 h-20 rounded-full bg-gradient-to-b from-cyan-500 to-blue-700 flex items-center justify-center text-3xl"
-        >
-            👤
-        </div>
+<div class="name">
+Hanabiku Sayankku AI
+</div>
 
-        <p class="mt-2 text-sm">
-            Hanabi
-        </p>
-
-    </div>
-
-    <div class="flex flex-col items-center min-w-[80px]">
-
-        <div
-            class="w-20 h-20 rounded-full bg-gradient-to-b from-fuchsia-500 to-pink-700 flex items-center justify-center text-3xl"
-        >
-            👤
-        </div>
-
-        <p class="mt-2 text-sm">
-            Sakura
-        </p>
-
-    </div>
+<div class="status">
+Online • Tekan untuk mulai ngobrol 💜
+</div>
 
 </div>
 
-<!-- CHAT LIST -->
-<div class="px-5 pb-32 space-y-4">
+</a>
 
-    <!-- AI CHAT -->
-    <div class="glass rounded-3xl p-5 flex items-center gap-4">
+<a href="/messages" class="chat-card">
 
-        <div
-            class="w-16 h-16 rounded-full bg-gradient-to-b from-pink-500 to-purple-700 flex items-center justify-center text-3xl"
-        >
-            🤖
-        </div>
+<div class="avatar user">
+👤
+</div>
 
-        <div class="flex-1">
+<div>
 
-            <h2 class="text-xl font-bold text-fuchsia-300">
-                Girls AI
-            </h2>
+<div class="name">
+Chat Pengguna WRR
+</div>
 
-            <p class="text-gray-300 mt-1">
-                Halo sayang 😆💜 ada yang bisa aku bantu?
-            </p>
-
-        </div>
-
-    </div>
-
-    <!-- CHAT USER -->
-    <div class="glass rounded-3xl p-5 flex items-center gap-4">
-
-        <div
-            class="w-16 h-16 rounded-full bg-gradient-to-b from-cyan-500 to-blue-700 flex items-center justify-center text-3xl"
-        >
-            👤
-        </div>
-
-        <div class="flex-1">
-
-            <h2 class="text-xl font-bold">
-                Hanabi
-            </h2>
-
-            <p class="text-gray-300 mt-1">
-                Lagi apa 😆
-            </p>
-
-        </div>
-
-    </div>
+<div class="status">
+Lihat teman & pesan masuk
+</div>
 
 </div>
 
-<!-- NAVBAR -->
+</a>
+
+</div>
+
 <div class="bottom-nav">
 
-    <a href="/home" class="nav-item">
-        🏠
-        <span>Beranda</span>
-    </a>
+<a href="/home" class="nav-item">
+🏠
+</a>
 
-    <a href="/games" class="nav-item">
-        🎮
-        <span>Game</span>
-    </a>
+<a href="/games" class="nav-item">
+🎮
+</a>
 
-    <a href="/create" class="plus-btn">
-        +
-    </a>
+<a href="/create" class="nav-item">
+➕
+</a>
 
-    <a href="/chat" class="nav-item active">
-        💬
-        <span>Chat</span>
-    </a>
+<a href="/chat" class="nav-item active">
+💬
+</a>
 
-    <a href="/profile" class="nav-item">
-        👤
-        <span>Profil</span>
-    </a>
+<a href="/profile" class="nav-item">
+👤
+</a>
 
 </div>
 
 </body>
 </html>
+```

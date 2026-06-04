@@ -12,6 +12,7 @@ use App\Http\Controllers\FollowController;
 
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AiController;
+use App\Http\Controllers\MessageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -106,6 +107,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/chat', function () {
     return view('chat');
 })->name('chat');
+
+Route::get('/chat-ai', function () {
+    return view('chat-ai');
+})->name('chat.ai');
+
+Route::get(
+    '/messages',
+    [MessageController::class,'index']
+)->name('messages');
+
+Route::post(
+    '/messages/send',
+    [MessageController::class,'store']
+)->name('messages.send');
 
     /*
     |--------------------------------------------------------------------------
